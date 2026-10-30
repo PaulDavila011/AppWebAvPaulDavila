@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Web.Security;
 
-public partial class Logout : System.Web.UI.Page
-public partial class Logout : System.Web.UI.Page
+namespace WebAppPoliMusicV2
 {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class Logout : System.Web.UI.Page
     {
-        FormsAuthentication.SignOut();
-        Response.Redirect("Login.aspx");
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
+        }
     }
-}
 
 
 }

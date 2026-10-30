@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Configuration;
+using System.Globalization;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -61,11 +63,11 @@ namespace WebAppPoliMusicV2
             }
             if (fupPhoto.HasFile)
             {
-                messageValidations = new FileManagement().SaveImageOnServer(fupPhoto, strImageFolder, newImageName);
+                messageValidations = new FileManagement().SaveImageOnServer(fupPhoto, Util.Media.ToMediaPath(strImageFolder), newImageName);
             }
             else
             {
-                messageValidations = new FileManagement().SaveDefaultImageOnServer(strImageFolder, newImageName);
+                messageValidations = new FileManagement().SaveDefaultImageOnServer(Util.Media.ToMediaPath(strImageFolder), newImageName);
                 user.Photo += ".jpg";
             }
             if (messageValidations != string.Empty)

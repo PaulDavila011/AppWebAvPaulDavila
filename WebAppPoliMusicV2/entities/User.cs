@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 
-namespace WebAppPoliMusicV2.entities
+namespace WebAppPoliMusicV2.Entities
 {
     public class User
     {
